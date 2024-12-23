@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator - Empowering the Nation</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="Home.html">Home</a>
+        <br>
+        <a href="aboutUs.html">About Us</a>
+        <br>
+        <a href="course.html">Courses</a>
+        <br>
+        <a href="testimonials.html">Testimonials</a>
+        <br>
+
+        <div class="dropdown">
+            <button class="dropbtn">Contact Us <span class="arrow">▼</span></button>
+            <div class="dropdown-content">
+                <a href="janSmutsAve.html">Jan Smuts</a>
+                <a href="southBoulevard.html">South Boulevard</a>
+                <a href="surreyAvenue.html">Surrey Avenue</a>
+            </div>
+        </div>
+
+        <br>
+        <a href="calculations.html">Calculator</a>
+        <br>
+        <a href="form.html">Form</a>
+    </nav>
+
+
+    <div class="back-button">
+        <a href="Home.html">←</a>
+    </div>
+
+    <center><h1>Courses Calculator</h1></center>
+
+    <div class="course-container">
+
+        <div class="course-box">
+            <h2><center>6 Month Courses</center></h2>
+            <table>
+                <tr>
+                    <th>Courses</th>
+                    <th>Price(ZAR)</th>
+                    <th>Select</th>
+                </tr>
+
+                <tr>
+                    <td>Sewing</td>
+                    <td>1500.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="1500" data-course="Sewing"></td>
+                </tr>
+
+                <tr>
+                    <td>First Aid</td>
+                    <td>1500.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="1500" data-course="First Aid"></td>
+                </tr>
+
+                <tr>
+                    <td>Landscaping</td>
+                    <td>1500.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="1500" data-course="Landscaping"></td>
+                </tr>
+
+                <tr>
+                    <td>Life Skills</td>
+                    <td>1500.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="1500" data-course="Life Skills"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="course-box">
+            <h2><center>6 Week Courses</center></h2>
+            <table>
+                <tr>
+                    <th>Courses</th>
+                    <th>Price(ZAR)</th>
+                    <th>Select</th>
+                </tr>
+
+                <tr>
+                    <td>Child Minding</td>
+                    <td>750.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="750" data-course="Child Minding"></td>
+                </tr>
+
+                <tr>
+                    <td>Cooking</td>
+                    <td>750.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="750" data-course="Cooking"></td>
+                </tr>
+
+                <tr>
+                    <td>Garden Maintenance</td>
+                    <td>750.00</td>
+                    <td><input type="checkbox" class="course-checkbox" data-price="750" data-course="Garden Maintenance"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="course-box">
+            <p>Subtotal: R <span id="subtotal">0.00</span></p>
+            <p>Discount: <span id="discount">0%</span></p>
+            <p>VAT (15%): R <span id="vat">0.00</span></p>
+            <p>Total: R <span id="total">0.00</span></p>
+            <h3>Selected Courses:</h3>
+            <ul id="selectedCourses"></ul>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            let checkboxes = document.querySelectorAll('.course-checkbox:checked');
+            if (checkboxes.length === 0) {
+                alert('Please select at least one course to calculate the total.');
+                return; 
+            }
+
+            let subtotal = 0;
+            let courseCount = 0;
+            let selectedCourses = [];
+
+            checkboxes.forEach(checkbox => {
+                subtotal += parseFloat(checkbox.getAttribute('data-price'));
+                courseCount++;
+                selectedCourses.push(checkbox.getAttribute('data-course'));
+            });
+
+            let discount = 0;
+            let discountPercent = 0;
+            if (courseCount === 2) {
+                discount = subtotal * 0.05;
+                discountPercent = 5;
+            } else if (courseCount === 3) {
+                discount = subtotal * 0.10;
+                discountPercent = 10;
+            } else if (courseCount > 3) {
+                discount = subtotal * 0.15;
+                discountPercent = 15;
+            }
+
+            let vat = (subtotal - discount) * 0.15;
+            let total = (subtotal - discount) + vat;
+
+            document.getElementById('subtotal').textContent = subtotal.toFixed(2);
+            document.getElementById('discount').textContent = discountPercent + '%';
+            document.getElementById('vat').textContent = vat.toFixed(2);
+            document.getElementById('total').textContent = total.toFixed(2);
+
+            const selectedCoursesList = document.getElementById('selectedCourses');
+            selectedCoursesList.innerHTML = '';
+            selectedCourses.forEach(course => {
+                let listItem = document.createElement('li');
+                listItem.textContent = course;
+                selectedCoursesList.appendChild(listItem);
+            });
+        }
+    </script>
+
+    <center>
+        <div class="button-container">
+            <button class="learn-button" onclick="calculateTotal()">Calculate</button>
+            
+            <br><br>
+
+            <div class="button-container">
+                <a href="form.html" class="learn-button">Fill Form</a>
+            </div>
+        </div>
+    </center>
+
+</body>
+</html>
+
+<!-- bycode.infotech (n.d.). How to Build a Simple Calculator Using HTML, CSS, and JavaScript. Available at: https://youtube.com/shorts/7TTRcvSs7oY?si=YiTQBUDmhnZTFX1u (Accessed: 23 September 2024). -->
+<!--Canva. (n.d.). White Blue Aesthetic University Logo. Retrieved from https://www.canva.com/design/DAGNkVv69O8/xdcCE_Ovik2BUcLx7CcQog/edit?utm_content=DAGNkVv69O8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton -->
+<!--Canva. (n.d.). New Website Wireframes. Retrieved from https://www.canva.com/design/DAGRlRS23lQ/onmpgxUvPvF9m9qRqmsciQ/edit?utm_content=DAGRlRS23lQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton -->
+<!-- CodingLab (n.d.). Create a Responsive Calculator in HTML CSS & JavaScript. Available at: https://youtu.be/cHkN82X3KNU?si=SVuusJ_vXg1-V7Vi (Accessed: 23 September 2024). -->
+<!-- Devression (n.d.). Simple Dropdown Menu Using HTML & CSS - EASY TUTORIAL. Available at: https://youtu.be/dmFC1e_CUAQ [Accessed: 23 September 2024]. -->
+<!-- OpenAI (2023). ChatGPT: An Overview. Available at: https://www.openai.com/chatgpt (Accessed: 23 September 2024). -->
+<!-- The IIE. 2024. MAST5112MM: 2024 Student Materials. The Independent Institute of Education: Unpublished. -->
+<!-- The IIE. 2024. XHAW5112MM: 2024 Student Materials. The Independent Institute of Education: Unpublished. -->
+<!-- The IIE. 2024. WEDE5020MM: 2024 Student Materials. The Independent Institute of Education: Unpublished. -->

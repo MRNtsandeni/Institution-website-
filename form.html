@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form - Empowering the Nation</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <nav>
+        <a href="Home.html">Home</a>
+        <br>
+        <a href="aboutUs.html">About Us</a>
+        <br>
+        <a href="course.html">Courses</a>
+        <br>
+        <a href="testimonials.html">Testimonials</a>
+        <br>
+
+        <div class="dropdown">
+            <button class="dropbtn">Contact Us <span class="arrow">▼</span></button>
+            <div class="dropdown-content">
+                <a href="janSmutsAve.html">Jan Smuts</a>
+                <a href="southBoulevard.html">South Boulevard</a>
+                <a href="surreyAvenue.html">Surrey Avenue</a>
+            </div>
+        </div>
+
+        <br>
+        <a href="calculations.html">Calculator</a>
+        <br>
+        <a href="form.html">Form</a>
+    </nav>
+
+
+    <div class="back-button">
+        <a href="Home.html">←</a>
+    </div>
+
+    <center><h1>Course Enrollment Form</h1></center>
+
+    <div class="course-container">
+        
+        <div class="course-box">
+            <form action="confirmation.html" method="post" id="course-form">
+                <table>
+                    <h2><center>6 Week Courses</center></h2>
+                    <tr>
+                        <th>Courses</th>
+                        <th>Price(ZAR)</th>
+                        <th>Select</th>
+                    </tr>
+
+                    <tr>
+                        <td>Child Minding</td>
+                        <td>750.00</td>
+                        <td><input type="checkbox" name="courses" value="Child Minding"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Cooking</td>
+                        <td>750.00</td>
+                        <td><input type="checkbox" name="courses" value="Cooking"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Garden Maintenance</td>
+                        <td>750.00</td>
+                        <td><input type="checkbox" name="courses" value="Garden Maintenance"></td>
+                    </tr>
+                </table>
+
+                <table>
+                    <h2><center>6 Month Courses</center></h2>
+
+                    <tr>
+                        <td>Sewing</td>
+                        <td>1500.00</td>
+                        <td><input type="checkbox" name="courses" value="Sewing"></td>
+                    </tr>
+
+                    <tr>
+                        <td>First Aid</td>
+                        <td>1500.00</td>
+                        <td><input type="checkbox" name="courses" value="First Aid"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Landscaping</td>
+                        <td>1500.00</td>
+                        <td><input type="checkbox" name="courses" value="Landscaping"></td>
+                    </tr>
+
+                    <tr>
+                        <td>Life Skills</td>
+                        <td>1500.00</td>
+                        <td><input type="checkbox" name="courses" value="Life Skills"></td>
+                    </tr>
+                </table>
+        </div>
+
+        <div class="course-box">
+            <h2><center>Personal Information</center></h2>
+            <table>
+                <tr>
+                    <td><label for="name">Name:</label></td>
+                    <td><input type="text" id="name" name="name" required></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email:</label></td>
+                    <td><input type="email" id="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <td><label for="cell">Cell Number:</label></td>
+                    <td><input type="text" id="cell" name="cell" required></td>
+                </tr>
+                <tr>
+                    <td><label for="venue">Preferred Venue:</label></td>
+                    <td>
+                        <select id="venue" name="venue" required>
+                            <option value="" disabled selected>Select a venue</option> 
+                            <option value="Jan Smuts">Jan Smuts</option>
+                            <option value="South Boulevard">South Boulevard</option>
+                            <option value="Surrey Avenue">Surrey Avenue</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+        
+            <br>
+            <p>Please verify your course selection and personal information before confirming.</p>
+            <br>
+        
+            <center>
+                <button type="submit" class="action-button" onclick="return validateForm()">Confirm</button>
+            </center>
+        </div>
+        
+</body>
+</html>
+
+<!--Canva. (n.d.). White Blue Aesthetic University Logo. Retrieved from https://www.canva.com/design/DAGNkVv69O8/xdcCE_Ovik2BUcLx7CcQog/edit?utm_content=DAGNkVv69O8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton -->
+<!--Canva. (n.d.). New Website Wireframes. Retrieved from https://www.canva.com/design/DAGRlRS23lQ/onmpgxUvPvF9m9qRqmsciQ/edit?utm_content=DAGRlRS23lQ&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton -->
+<!-- Devression (n.d.). Simple Dropdown Menu Using HTML & CSS - EASY TUTORIAL. Available at: https://youtu.be/dmFC1e_CUAQ [Accessed: 23 September 2024]. -->
+<!-- The IIE. 2024. XHAW5112MM: 2024 Student Materials. The Independent Institute of Education: Unpublished. -->
+<!-- The IIE. 2024. WEDE5020MM: 2024 Student Materials. The Independent Institute of Education: Unpublished. -->
